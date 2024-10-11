@@ -268,6 +268,28 @@ class Car {
 				}
 			}
 			tempCar.dxy = new int[]{0, 0};
+	               }
+	              else {
+				if(tempCar.road.roadDir == 'N') {
+					if(tempCar.turningPoint1.roadDir[0] == 'E')
+						tempCar.lane = 'R';
+					else if(tempCar.turningPoint1.roadDir[0] == 'W')
+						tempCar.lane = 'L';
+				} else if(tempCar.road.roadDir == 'S') {
+					if(tempCar.turningPoint1.roadDir[0] == 'E')
+						tempCar.lane = 'L';
+					else if(tempCar.turningPoint1.roadDir[0] == 'W')
+						tempCar.lane = 'R';
+				} else if(tempCar.road.roadDir == 'E') {
+					if(tempCar.turningPoint1.roadDir[1] == 'N')
+						tempCar.lane = 'L';
+					else if(tempCar.turningPoint1.roadDir[1] == 'S')
+						tempCar.lane = 'R';
+				} else if(tempCar.road.roadDir == 'W') {
+					if(tempCar.turningPoint1.roadDir[1] == 'N')
+						tempCar.lane = 'R';
+					else if(tempCar.turningPoint1.roadDir[1] == 'S')
+						tempCar.lane = 'L';
 			allCars.put(tempCar.carID, tempCar);
 			tempCar.queueTime = Frame.systemTime;
 			if(entrance.roadDir[0] == 'N' || entrance.roadDir[0] == 'S')
